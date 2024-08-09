@@ -1,41 +1,116 @@
 <style>
-    .red{
-      background-color:rgb(165, 12, 12);
+  .click{
+    background-color: green;
+    color: whitesmoke;
+    margin-right: 10px;
+    border: none;
+    height: 35px;
+    width: 80px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.2s;
+    vertical-align: top;
+  }
+  .click:hover{
+    background-color: whitesmoke;
+    color: green;
+  }
+    .X{
+      background-color:black;
       color:white;
+      margin-right: 10px;
+      margin-left: 10px;
       border: none;
-      height: 35px;
-      width: 90px; height: 30px;
-      width: 80px;
+      /* height: 35px;
+      width: 50px;  */
+      padding-top: 8px;
+      padding-bottom: 8px;
+      padding-right: 20px;
+      padding-left: 20px;
       border-radius: 4px;
       cursor: pointer;
       border-radius: 4px;
       cursor: pointer;
+      transition: 0.2s;
+      vertical-align: top;
     }
-    .purple{
-      background-color: rgb(103, 4, 103);
+    .X:hover{
+      /* opacity: 0.7; */
+      padding-left: 25px;
+      padding-right: 25px;
+      padding-top: 12px;
+      padding-bottom: 12px; 
+      margin-right: 0px;
+    }
+
+
+    .instagram{
+      margin-right: 10px;
+      background-color:purple;    
       color: whitesmoke;
-      border: none;
-      height: 35px;
+      /* border: none; */
+      height: 35px; 
+      padding-top: 8px;
+      padding-bottom: 8px;
       width: 100px;
       border-radius: 4px;
       cursor: pointer;
+      transition: 0.2s;
+      vertical-align: top;
+      
     }
+    .instagram:hover{
+      color: purple;
+      background-color: whitesmoke;
+    }
+
     .join{
+      margin-right: 10px;
       background-color: white;
       color: rgb(175, 16, 16);
+      padding-top: 8px;
+      padding-bottom: 8px;
+      padding-left: 10px;
+      padding-right: 10px;
       border-color: rgb(163, 14, 14);
-      border-style: solid; height: 30px;
-      width: 80px;
-      border-radius: 4px;
       cursor: pointer;
       border-width: 2px;
-      height: 35px;
-      width: 60px;
+      /* height: 35px;
+      width: 60px; */
       border-radius: 8px;
-      cursor: pointer;
+      transition: 0.2s;
+      vertical-align: top;
     }
+    .join:hover{
+      background-color:rgb(175, 16, 16);
+      color: white;  
+    }
+
+    .cringe{
+      background-color: black;
+      color: greenyellow;
+      padding-top:8px ;
+      padding-bottom: 8px;
+      padding-left: 15px;
+      padding-right: 15px;
+      border: none;
+      border-radius: 5px;
+      vertical-align: top;
+    }
+    .cringe:hover{
+      background-color: greenyellow;
+      color: black;
+      transition: 0.2s;      
+        
+    }
+
 </style>
-<button  class="red">YOUTUBE</button>
-<button class="purple">INSTAGRAM</button>
-<button class="join">JOIN</button>
-<p>This is my first Website</p>
+<h1>This Is My First Website</h1>
+<button  class="X"><b>X</b></button>
+<button class="instagram"><a href = "https://www.instagram.com/itsaaryan23/"target="_blank" style="text-decoration: none; color: inherit ;" ><b>INSTAGRAM</b></a></button>
+<button class="join"><b>JOIN</b></button>
+<button class ="click">
+  <a href="https://example.com" style="color:inherit; text-decoration:none;" target="_blank"><b>CLICK ME</b></a>
+</button>
+<button class="cringe"><B>CRINGE</B></button>
+
