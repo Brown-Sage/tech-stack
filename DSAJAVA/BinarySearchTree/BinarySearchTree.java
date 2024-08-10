@@ -1,29 +1,33 @@
 public class BinarySearchTree {
     Node root;
-    class Node{
+
+    // I use this Node class to represent each node in my binary search tree
+    class Node {
         Node left;
         Node right;
         int value;
-        public Node(int value){
+        public Node(int value) {
             this.value = value;
         }
     }
-    public boolean insert(int value){                //to add the  elements in the binary tree
+
+    // I use this method to add new elements to my binary search tree
+    public boolean insert(int value) {
         Node newNode = new Node(value);
-        if(root==null){
+        if (root == null) {
             root = newNode;
             return true;
         }
         Node temp = root;
-        while(true){
-            if(newNode.value < temp.value){
-                if(temp.left == null){
+        while (true) {
+            if (newNode.value < temp.value) {
+                if (temp.left == null) {
                     temp.left = newNode;
                     return true;
                 }
-                temp = temp.left;;
-            }else{
-                if(temp.right == null){
+                temp = temp.left;
+            } else {
+                if (temp.right == null) {
                     temp.right = newNode;
                     return true;
                 }
@@ -31,21 +35,25 @@ public class BinarySearchTree {
             }
         }
     }
-    public boolean contains(int value){      //to check if the element is in the binary tree or not
-        if(root==null) return false;
+
+    // I use this method to check if a specific value exists in my binary search tree
+    public boolean contains(int value) {
+        if (root == null) return false;
         Node temp = root;
-        while(temp != null){
-            if(value < temp.value){
+        while (temp != null) {
+            if (value < temp.value) {
                 temp = temp.left;
             }
-            else if(value > temp.value){
+            else if (value > temp.value) {
                 temp = temp.right;
-            }else{
-                return true;
+            } else {
+                return true; // I found the value!
             }
         }
-        return false;
+        return false; // I couldn't find the value
     }
+
+    // This is where I test my binary search tree implementation
     public static void main(String[] args) {
         BinarySearchTree mybst = new BinarySearchTree();
         mybst.insert(10);
@@ -58,8 +66,11 @@ public class BinarySearchTree {
         System.out.println(mybst.contains(12));
     }
 }
-    /*     public static void main(String[] args) {
+
+/*
+    // This was an alternative main method I used for testing
+    public static void main(String[] args) {
         BinarySearchTree bst = new BinarySearchTree();
-        System.out.println("root = "+bst.root);
+        System.out.println("root = " + bst.root);
     }
-}*/
+*/

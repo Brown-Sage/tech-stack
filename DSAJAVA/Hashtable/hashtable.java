@@ -30,3 +30,5 @@ public class hashtable {
         h.printtable();
     }
 }
+
+//this is not properly dont so this code may have flaw or possibility to not work at all

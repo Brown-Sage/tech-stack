@@ -3,6 +3,7 @@ public class LinkedList1 {
     Node tail;
     int length;
 
+    // Node class definition
     class Node {       
         String value;
         Node next;
@@ -11,13 +12,17 @@ public class LinkedList1 {
             this.value = value;
         }
     }
+
+    // Constructor for LinkedList1
     LinkedList1(String value){
         Node newNode = new Node(value);
         head = newNode;
         tail = newNode;
         length = 1;
     }
-    public void append(String value){                //code for add an element at last index/position
+
+    // Method to add an element at the last index/position
+    public void append(String value){
         Node newNode = new Node(value);
         if(length==0){
             head = newNode;
@@ -28,7 +33,9 @@ public class LinkedList1 {
         }
         length++;
     }
-    public void printlist(){                      // code for print all the elements of the linkedlist
+
+    // Method to print all the elements of the linkedlist
+    public void printlist(){
        Node temp = head;
        while(temp!=null){
         System.out.print(temp.value+" ");
@@ -36,7 +43,9 @@ public class LinkedList1 {
        }
        System.out.println();
     }
-    public Node removeLast() {                    // code for remove the last element of the linkedlist
+
+    // Method to remove the last element of the linkedlist
+    public Node removeLast() {
         Node temp = head;
         Node pre = head;
         while(temp.next != null) {
@@ -52,7 +61,9 @@ public class LinkedList1 {
         }
         return temp;
     }
-    public void prepend(String value){             //code for prepend(adding a value at biginning)
+
+    // Method for prepending (adding a value at beginning)
+    public void prepend(String value){
         Node newNode = new Node(value);
         if(length==0){
             head = newNode;
@@ -63,7 +74,9 @@ public class LinkedList1 {
         }
         length++;        
     }
-    public Node removeFirst(){                //code for remove the first element
+
+    // Method to remove the first element
+    public Node removeFirst(){
         if(length == 0){
             return null;
         }else{
@@ -75,7 +88,9 @@ public class LinkedList1 {
         }
         return head;
     }
-    public Node get(int index){              // code for see the value of an element on given element
+
+    // Method to get the value of an element at a given index
+    public Node get(int index){
         if(index<0 || index >= length){
             return null;
         }
@@ -86,7 +101,9 @@ public class LinkedList1 {
         
         return temp;
     }
-    public boolean set(int index, String value){      // code for change/modify the value of temp/element
+
+    // Method to change/modify the value of a node at a given index
+    public boolean set(int index, String value){
         Node temp = get(index);
         while(temp!=null){
             temp.value = value;
@@ -94,7 +111,9 @@ public class LinkedList1 {
         }
         return false;
     }
-    public boolean insert(int index , String value){  // code for set an element between a list
+
+    // Method to insert an element at a specific index
+    public boolean insert(int index , String value){
         if(index<0 || index>length){
             return false;
         }
@@ -113,7 +132,9 @@ public class LinkedList1 {
         length++;
         return true;
     }
-    public Node remove(int index){                           // code for removing an element from a linkedlist
+
+    // Method for removing an element from a specific index in the linkedlist
+    public Node remove(int index){
         if(index < 0 || index >= length) return null;
         else if(index == 0) return removeFirst();
         else if(index ==length-1) return removeLast();
@@ -125,7 +146,9 @@ public class LinkedList1 {
         length--;
         return temp;
     }
-    public void reverse(){                       // code to reverse the Linkedlist
+
+    // Method to reverse the Linkedlist
+    public void reverse(){
         Node temp = head;
         head = tail;
         tail = temp;
@@ -138,12 +161,18 @@ public class LinkedList1 {
             temp = after;
         }
     }
+
+    // Method to get the head of the list
     public void gethead(){
         System.out.println("head is : "+head.value);
     }
+
+    // Method to get the tail of the list
     public void getTail() {
         System.out.println("tail is : "+tail.value); 
     }
+
+    // Method to get the length of the list
     public void length(){
         System.out.println("length of the Linkedlist is : "+length);
     }   
@@ -173,8 +202,7 @@ public class LinkedList1 {
 
         //System.out.println(myLinkedList1.removeLast().value);       THIS CAN BE USED IF WE WANT TO RETURN null ALSO
         //System.out.println(myLinkedList1.removeLast().value);
-        //System.out.println(myLinkedLi st1.removeLast().value);
+        //System.out.println(myLinkedList1.removeLast().value);
         //System.out.println(myLinkedList1.removeLast());
-
     }
 }
