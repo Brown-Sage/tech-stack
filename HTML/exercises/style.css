@@ -57,3 +57,19 @@
 .gif{
     width: 20%;
 }
+.tech{
+    color: green;
+    transition: 0.1s;
+    text-decoration: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.tech:hover{
+    color: red;
+}
+.link{
+   text-decoration: none;
+}
+.symbol{
+    font-size: 1.4em;
+    vertical-align: middle;
+}
