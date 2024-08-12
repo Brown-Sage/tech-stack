@@ -50,3 +50,10 @@
     background-color: whitesmoke;
     color: rgb(26, 187, 26);
 }
+.gif_container{
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+.gif{
+    width: 20%;
+}
