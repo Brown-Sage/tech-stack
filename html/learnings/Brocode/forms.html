@@ -4,16 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forms</title>
+    <link rel="stylesheet" href="forms.css">
 </head>
 <body>
-
-    <form action="audiio.html" method="post">
+    <div class="form-cointainer">
+    <form class="form" action="audiio.html" method="post">
         <label for="Username">Username</label>
-        <input type="text" placeholder="Name" minlength="4" maxlength="14" required>
-
-
-        <input type="submit">
+        <input id="name" type="text" placeholder="Name" minlength="4" maxlength="14" required> <br>
+        <label for="password">Password</label>
+        <input id="password" type="text" placeholder="Password"><br>
+        <label for="Email">Email*</label>
+        <input id="email" type="text" placeholder="Email"><br>
+        <label for="date">Date</label>
+        <input id="date" type="date" placeholder="Date"><br>
+        <label for="quantity">Quantity</label>
+        <input id="quantity" type="quantity" placeholder="Quantity"> <br>
+        <label for="payment"> Payment </label>
+        <select id="payment">
+            <option value="visa">Visa</option>
+            <option value="Mastercard">Mastercard</option>
+        </select><br>
+        <label for="file">Photo</label>
+        <input id="file" type="file" accept="image/png,image/jpeg" multiple>
+        <div class="button">
+            <input id="reset" type="reset">
+            <input id="submit" type="submit" value="Submit">
+        </div>
     </form>
-    
+    </div>
 </body>
 </html>
