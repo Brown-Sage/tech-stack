@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dkdc</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        .box{
+            position:relative ;
+            top: 1px;
+            display: inline-block;
+            box-shadow: 7px 5px 10px;  /* display; properties are the mvp keep revising em */
+            text-align: center;
+            margin: 5px 20px 20px;
+            border: 1px solid;
+            font-size: 2em;
+            width: 200px;
+            height: 200px;
+        }
+        #box1{
+            margin-bottom: 10px;
+            background-color: black;
+            color: red;
+            border-color: red;
+            
+        }
+        #box2{
+            position: absolute;
+            right: 20px;
+            background-color: white;
+            color: rgb(42, 42, 216);
+            border-color: rgb(42, 42, 216);
+        }
+        #text{
+            border: 2px solid ;
+            height: 10vh;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box1">Box 1</div>
+    <div class="box" id="box2">Box 2</div>
+    <div id="text">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur aut harum quas ut repellat illo consequuntur dolorum saepe rem accusantium perspiciatis, ipsam inventore id architecto? Id minus aut ratione accusamus.</p>
+    </div>
+</body>
+</html>
