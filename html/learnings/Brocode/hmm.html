@@ -8,10 +8,12 @@
         body{
             margin: 0px;
         }
+        .container{
+            background-color: grey;
+        }
         .box{
-            position:relative ;
+            
             top: 1px;
-            display: inline-block;
             box-shadow: 7px 5px 10px;  /* display; properties are the mvp keep revising em */
             text-align: center;
             margin: 5px 20px 20px;
@@ -21,6 +23,8 @@
             height: 200px;
         }
         #box1{
+            display: inline-block;
+            left: 20px;
             margin-bottom: 10px;
             background-color: black;
             color: red;
@@ -28,6 +32,7 @@
             
         }
         #box2{
+            display: inline-block;
             position: absolute;
             right: 20px;
             background-color: white;
@@ -42,8 +47,10 @@
     </style>
 </head>
 <body>
+    <div class="container">
     <div class="box" id="box1">Box 1</div>
     <div class="box" id="box2">Box 2</div>
+    </div>
     <div id="text">
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur aut harum quas ut repellat illo consequuntur dolorum saepe rem accusantium perspiciatis, ipsam inventore id architecto? Id minus aut ratione accusamus.</p>
     </div>
