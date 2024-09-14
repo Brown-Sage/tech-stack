@@ -6,29 +6,46 @@
     <title>Sea of Problems 2</title>
     <link rel="icon" type="image/jpg" href="image/cropped(1).jpg">
     <style>
-        #song1{
+        .song{
             margin-top: 1px;
-            
             margin-right: 20px;
+            position: relative;
+            z-index: 1;
+            color: whitesmoke;
         }
-        .songs{
+        .content-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 9px;
+            padding: 20px;
         }
-        </style>
- 
+        .content-wrapper::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background-color: rgb(101, 51, 51);
+            filter: blur(40px);
+            z-index: -1;
+        }
+    </style>
 </head>
 <body>
-    <div class="songs">
-    <div id="song1">
+    <div class="content-wrapper">
+    <div class="song" id="song1">
         <p>Sea Of Problems 2</p>
         <audio controls loop>
             <source src="music/Sea Of Problems 2.mp3">
         </audio>
     </div>
-    <div>
+    <div class="song" id="song2">
         <p>mylesxiety - it will be alright</p>
         <audio controls>
         <source src="music/mylesxiety - it will be alright.mp3">
-        </audio>    </div>
+        </audio>
+    </div>
     <br>
     <div>
         <p>Random screen recording of my gaming laptop that died</p>
