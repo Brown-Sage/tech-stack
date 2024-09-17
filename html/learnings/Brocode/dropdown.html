@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dropdown</title>
+    <style>
+        .dropdown{
+            display: inline-block;
+        }
+        .dropdown #button{
+            color: green;
+            background-color: rgb(202, 142, 142);
+            border: none;
+            width: 10vh;
+            height: 5vh;
+            font-size: 20px;
+        }
+        .dropdown a{
+            display: block;
+            background-color: rgb(199, 188, 188);
+            color: black;
+            padding: 10px 10px 10px;
+            text-decoration: none;
+        }
+        .dropdown .menu{
+            display: none;
+            width: 100px;
+            box-shadow: 4px 4px 10px;
+        }
+        .dropdown:hover .menu{
+            display: block;
+        }
+        .menu a:hover{
+            background-color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <button id="button">menu</button>
+
+        <div class="menu">
+            <a href="">home</a>
+            <a href="">about</a>
+            <a href="">contact</a>
+        </div>
+    </div>
+    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae excepturi quae cumque dolore maxime laudantium exercitationem blanditiis maiores distinctio neque quaerat, non laboriosam facilis aperiam, reiciendis, incidunt commodi debitis ipsam.</div>
+
+</body>
+</html>
