@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout</title>
+    <style>
+        body{
+            margin: 0px;
+            
+        }
+        .upper{
+            display: block;
+            background-color: grey;
+            
+            height: 70px;
+        }
+        .logo{
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .navbar{
+            position: absolute;
+            right: 20px;
+            top: 35px;
+        }
+        .navbar li{
+            float: right;
+            margin-left: 20px;
+            list-style-type: none;
+        }
+        .navbar a{
+            color: wheat;
+            font-weight: bold;
+            text-decoration: none;   
+        }
+        .navbar a:hover{
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="upper">
+            <h1 class="logo">Hello</h1>
+            <nav class="navbar"">
+                <li><a href="">Home</a></li>
+                <li><a href="">Contact Me</a></li>
+                <li><a href="">About me</a></li>
+            </nav>
+        </div>
+    </header>
+</body>
+</html>
