@@ -7,17 +7,21 @@
     <style>
         body{
             
-            margin-left: 20px;
+            
         }
         header{
-            width: 100%;
-            height: 19vh;
+            display: flex;
+            justify-content: center;
         }
         .heading{
-            display: inline-block;            
+            display: inline-flex;
+            position: absolute;
+
         }
-        #hello{
-            position: relative;          
+        header #hello {
+            
+            position: absolute;
+            right: 40%;
             margin-top: 0;
             font-size: 35px;
         }
@@ -29,19 +33,26 @@
             
         }
         .navbar {
-            display: inline-block;
+            display: flex;
             vertical-align: middle;
+            position: absolute;
+            right: 15%;
+            position: absolute;
+            right: 10px;
         }
         .navbar li{
             padding: 10px 10px;
             list-style-type: none;
-            display: inline;
+            display: flex;
+            
+            
         }
         .navbar a{
-            display: inline-block;
+            display: flex;
             text-decoration: none;
             color: grey;
             font-weight: bold;
+            
 
         }
         .navbar li:hover{
@@ -103,7 +114,7 @@
 </head>
 <body>
     <header >
-        <div class="heading"><h1 id="hello">Hi</h1></div>
+        <p id="hello">Hi</p>
         <p id="line">Full Stack Developer</p>
         <nav class="navbar">
             <a href=""><li>Home</li></a>
