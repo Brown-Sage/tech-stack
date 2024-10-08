@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="myh1">type conversion</h1>
+    <label for="seach">number</label>
+    <input id="myinput" type="number">
+    <button id="mysubmit">Submit</button>
+    <h2 id="result"></h2>
+    <script>
+        let num;
+        const plus = 2;
+        document.getElementById("mysubmit").onclick = function(){
+        num = document.getElementById("myinput").value;
+        document.getElementById("result").innerHTML = `This is the ${Number(num)+plus}`; 
+    }
+    </script>
+</body>
+</html>

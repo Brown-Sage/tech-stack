@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ifelse</title>
+</head>
+<body>                  
+    <h1></h1>
+    <h3> for if else <br> type->  1-f 2-t </h3>
+    <input id="input" type="text" placeholder="opt">
+    <button id="button">Submit</button><br>
+    <p id="ans"></p>
+
+    <script>
+        let opt = Number(document.getElementById("input").value);
+        let ans = document.getElementById("ans");
+        document.getElementById('button').onclick = ()=>{
+            if(opt == 1){
+                document.getElementById("ans").textContent = 'dk';
+            }
+             else if (opt == 2) {
+                ans.textContent = 'true';
+            } else {
+                ans.textContent = 'Invalid option';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: purple;
+            
+        }
+        #numm{
+            font-size: 90px;
+            text-align: center;
+            margin-bottom: 10px;
+            color: greenyellow;
+        }
+        button{
+            border-style: none;
+            font-size: 20px;
+            margin:  0px 10px ;
+            background-color: black;
+            color: red;
+            font-weight: bold;
+        }
+        button:hover{
+            background-color: red;
+            color: black;
+        }
+        .buttoncontainer{
+            text-align: center;
+        }
+        h1{
+            text-align: center;
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Counter Program</h1>
+    <h2 id="numm">0</h2>
+    <div class="buttoncontainer">
+        <button id="decrease">Decrease</button>
+        <button id="reset">Reset</button>
+        <button id="increase">Increase</button>
+    </div>
+    <script>
+        let num = Number(document.getElementById("numm").textContent);
+        document.getElementById("increase").onclick =  ()=> {              //Either function() or ()=>
+            num++;
+            document.getElementById("numm").textContent = `${num}`; 
+        }
+        document.getElementById("reset").onclick = function(){
+            document.getElementById("numm").textContent = `${num = 0}`; 
+        }
+        document.getElementById("decrease").onclick = function(){
+            document.getElementById("numm").textContent = `${num = num-1}`; 
+        }
+    </script>
+</body>
+</html>
