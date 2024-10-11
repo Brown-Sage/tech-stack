@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <div>
+        <label for="name">what is your name</label>
+        <input id="namee" type="text" placeholder="name">
+        <input id="age" type="number">
+        <button id="mybutton"> Click Me</button>
+    </div>
+    <p id="infoo"></p>
+    <script>
+        const person = {
+            name:document.getElementById("namee").value,
+            age:document.getElementById("age").value,
+            info(){
+                return `my name is `+this.name+` and age is `+this.age;
+            }
+        }
+        document.getElementById("mybutton").onclick = ()=>{
+            document.getElementById("infoo").textContent = person.info();
+        }     
+    </script>    
+</body>
+</html>
