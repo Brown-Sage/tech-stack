@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <h1 id="myh1"> </h1>
+    <div id="divv">
+    <label>input your name</label>
+    <input id="in" type="text">
+    <button id="button1">Click Me</button>
+    </div>
+    <script>
+        document.getElementById("button1").onclick = () =>{
+            let username = document.getElementById("in").value;
+            document.getElementById("myh1").textContent= "Hello "+username;
+            document.getElementById("divv").style.display = 'none';
+        }
+    </script>
+</body>
+</html>

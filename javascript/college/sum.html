@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <label for="number">1st number</label>
+    <input id="1st" type="number"><br><br>
+    <label for="number">2nd number</label>
+    <input id="2nd" type="number">
+    <button id="butt">click</button>
+    <h3 id="summ"></h3>
+    <script>
+        document.getElementById("butt").onclick= () =>{
+            let sum = Number(document.getElementById("1st").value)+Number(document.getElementById("2nd").value);
+            document.getElementById("summ").textContent = `the sum is ${sum}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="x" type="text" placeholder="x">
+    <input id="y" type="text" placeholder="y">
+    <button id="butt">add</button><br><br><br>
+    <label for="result"> result - </label>  <p id="result" ></p>
+    
+    <script>
+        var a= Number(document.getElementById("x").value);
+        var b= Number(document.getElementById("y").value);
+        document.getElementById("butt").onclick = ()=>{
+            document.getElementById("result").textContent = a+b;
+        }
+    </script>
+</body>
+</html>
