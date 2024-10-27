@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>what is the info you want to know ? age ? name ? blood?</h1>
+    <p id="inf"></p>
+
+<script>
+    let info = [
+        { name: "aaryan", age: 22, blood: "o+" },
+        { name: "nikit", age: 23, blood: "o-" },
+        { name: "kunal", age: 23, blood: "a-" }
+    ];
+    let inf = prompt("what do you want to know ? ");
+    let w=[];
+    if(inf=="name"){
+        w = info.map(user=>user.name);
+    }
+    else if(inf == "age"){
+       w = info.map(user=>user.age);
+    }
+    else if (inf == "blood"){
+        w = info.map(user=>user.blood);
+    }
+    else{
+        w = ["invalid"]
+    }
+    console.log(w);
+    document.getElementById("inf").textContent = w.join(", ");;
+
+</script>
+</body>
+</html>
+
+
