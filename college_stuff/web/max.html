@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="number">N1</label>
+    <input id="num1" type="number"> <br><br>
+    <label for="number">N2</label>
+    <input id="num2" type="number">
+    <button id="button">Find</button>
+    <h3 id="hh3"></h3>
+    <script>
+        let n1 = Number(document.getElementById("num1").value);
+        let n2 = Number(document.getElementById("num2").value);
+        let ans = Math.max(n1,n2);
+        document.getElementById("button").onclick = ()=>{
+            document.getElementById("hh3").textContent =`Bigger number is ${ans}`;
+        }
+    </script>
+</body>
+</html>
