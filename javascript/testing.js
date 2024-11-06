@@ -18,13 +18,25 @@
 // console.log(num.map(num=>num));
 
 // different 
-function greet(name) {
-    console.log("my name is", name);
-}
+// function greet(name) {
+//     console.log("my name is", name);
+// }
 
-function nameprovider(callback) {
-    const name = "Kanika";
-    callback(name);
-}
+// function nameprovider(callback) {
+//     const name = "Kanika";
+//     callback(name);
+// }
 
-nameprovider(greet);
+// nameprovider(greet);
+
+//different 
+const dk = () => console.log(1+2);
+
+const hello = function () {
+    return dk();
+}
+hello();
+
+function hello() {
+    return dk();
+}
