@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        *{
+            background-color: rgb(216, 90, 90);
+        }
+        #heading{
+            display: block;
+            font-size: 40px;
+            text-align: center;
+            
+        }
+        #clock{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size:150px;
+            height: 98vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="heading">Clock</div>
+    <div id="clock"></div>
+    <script>
+        function newtime(){
+            let time = new Date();
+        const hours = time.getHours()% 12 || 12;
+        const minutes = time.getMinutes();
+        const second = time.getSeconds();
+        const mer = hours > 12 ? "PM":"AM" ;
+        const realtime = () => (`${hours}:${minutes}:${second}:${mer}`);
+        
+        document.getElementById("clock").textContent = realtime();
+        }
+        setInterval(newtime,1000);
+    </script>
+</body>
+</html>
