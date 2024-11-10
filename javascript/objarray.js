@@ -15,3 +15,4 @@ persons.forEach(person => console.log(person.name));
 //     }
 // }  
 // console.log(human.human1.name);
+  

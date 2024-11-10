@@ -30,13 +30,25 @@
 // nameprovider(greet);
 
 //different 
-const dk = () => console.log(1+2);
+// const dk = () => console.log(1+2);
 
-const hello = function () {
-    return dk();
-}
-hello();
+// const hello = function () {
+//     return dk();
+// }
+// hello();
 
-function hello() {
-    return dk();
-}
+// function hello() {
+//     return dk();
+// }
+
+
+let time = new Date();
+        const hours = time.getHours();
+        const minutes = time.getMinutes();
+        const second = time.getSeconds();
+        const mer = hours > 12 ? "pm":"am" ;
+
+const realtime = (`${hours}:${minutes}:${second}`)
+
+
+        
