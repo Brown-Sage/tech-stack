@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 6px solid;
+      border-radius: 30px;
+      padding: 20px;
+    }
+    #clock{
+      font-size: 100px;
+    }
+    .btncontainer button{
+      font-size: 30px;
+      margin-right: 40px;
+      width: 100px;
+      border: solid;
+      border-color: black;
+      border-radius: 5px;
+    }
+    #start{
+      background-color: green;
+      color: whitesmoke;
+    }
+    #stop{
+      background-color: rgb(174, 13, 13);
+      color: whitesmoke;
+    }
+    #reset{
+      background-color: yellow;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <div id="clock">00:00:00:0000</div>
+  <div class="btncontainer">
+    <button id="start" onclick="start()">Start</button>
+    <button id="stop" onclick="stop()">Stop</button>
+    <button id="reset" onclick="reset()">Reset</button>
+  </div>
+  </div>
+  <script>
+    let hours = 0;
+    let minutes = 0;
+    let seconds = 0;
+    let millsec = 0;
+    isRunning = false;
+    let interval;
+    function updateData(){
+      let timer = document.getElementById("clock").innerText = `${String(hours).padStart(2,0)}:${String(minutes).padStart(2,0)}:${String(seconds).padStart(2,0)}:${String(millsec).padStart(3,0)}`
+      
+    }
+    function start(){
+      if(!isRunning){
+      isRunning = true;
+        interval = setInterval(()=>{
+          
+          millsec++;
+          if(millsec == 100){
+            seconds++;
+            millsec = 0;
+          
+      if(seconds == 60){
+        minutes++;
+        seconds = 0;
+      
+      if(minutes == 60){
+        hours++;
+        minutes = 0;
+      }}}
+      updateData();
+        },10);  // beacuse doing it to 1 ms need much more performance so changed millisec==100 from 1000
+      } 
+    };
+    
+    function stop(){
+      clearInterval(interval);
+      isRunning = false;
+    }
+    function reset(){
+    hours = minutes = seconds = millsec = 0;
+    isRunning = false;
+    clearInterval(interval)
+    updateData();
+    }
+  </script>
+</body>
+</html>
