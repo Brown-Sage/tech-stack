@@ -1,0 +1,12 @@
+.mybutton{
+    margin-bottom: 10px;
+    border: none;
+    background-color: green;
+    color: white;
+    font-size: 4rem;
+    border-radius: 8px; 
+    padding: 10px 15px;
+}
+.btnn{
+    display: none;
+}

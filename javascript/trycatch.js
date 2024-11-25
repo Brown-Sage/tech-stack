@@ -2,7 +2,7 @@ try {
     console.log(hello);   
 }
 catch (error){
-    console.error("naah");
+    console.log("naah");
 }
 finally {
     console.log("worked");

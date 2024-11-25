@@ -91,15 +91,18 @@
           if(millsec == 100){
             seconds++;
             millsec = 0;
-          
+          };
+
       if(seconds == 60){
         minutes++;
         seconds = 0;
-      
+      };
+
       if(minutes == 60){
         hours++;
         minutes = 0;
-      }}}
+      };
+      
       updateData();
         },10);  // beacuse doing it to 1 ms need much more performance so changed millisec==100 from 1000
       };

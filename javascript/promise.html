@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="myh1"></h1>
+    <label for="text">Name</label>
+    <input type="text" id="myinput">
+    <button id="mybtn">Submit</button>
+    <script>
+        let mypromise = new Promise((resolve,reject)=>{
+            document.getElementById("mybtn").addEventListener("click",()=>{
+                let name = document.getElementById("myinput").value;
+                name === "aaryan" ? resolve(name):reject("sorry");
+            });
+        });
+
+        mypromise
+        .then((resolve) => {
+            document.getElementById("myh1").innerText = resolve;
+        }).catch((reject) => {
+            document.getElementById("myh1").innerText = reject;
+
+        });
+    </script>
+</body>
+</html>
