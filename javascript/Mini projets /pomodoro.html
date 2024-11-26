@@ -10,7 +10,7 @@
             justify-content: center;
             height: 80vh;
             flex-direction: column;
-            background-color: purple;
+            background-color: yellowgreen;
         }
         #timer{
             display: flex;
@@ -26,6 +26,8 @@
         button{
             margin-left: 60px;
             font-size: 35px;
+            border: solid 2px;
+            border-radius: 6px;
             background-color: ;
         }
     </style>
@@ -51,7 +53,7 @@
         let isRunning = false;
         function onGoing(){
             if(isRunning==false){
-                plus = setInterval(()=>{
+                let plus = setInterval(()=>{
                 seconds++
                 if(seconds == 60){ 
                     minutes = 1;
@@ -61,7 +63,7 @@
                     hours = 1;
                     minutes = 0;
                 }
-                timer.innerHTML = `${hours}:${minutes}:${seconds}`;
+                timer.innerText = `${String(hours).padStart(2,0)}:${String(minutes).padStart(2,0)}:${String(seconds).padStart(2,0)}`;
             },1000)
             }
             
