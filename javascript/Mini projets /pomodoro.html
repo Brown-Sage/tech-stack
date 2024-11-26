@@ -39,8 +39,9 @@
         </div>
         <div id="buttons">
             <button onclick="start()">Start</button>
-            <button>Break</button>
-            <button onclick="stop()">Stop</button>
+            <button onclick="stoptimer()">Stop</button>
+            <button onclick="breaktimer()">Break</button>
+            <button onclick="reset()">Reset</button>
         </div>
         
         
@@ -51,10 +52,17 @@
         let minutes = 0;
         let seconds = 0;
         let isRunning = false;
+        let isBreakRunning = false;
+
+        function updateData(){
+            timer.innerText = `${String(hours).padStart(2,0)}:${String(minutes).padStart(2,0)}:${String(seconds).padStart(2,0)}`;
+        };
+
         function onGoing(){
             if(isRunning==false){
-                let plus = setInterval(()=>{
-                seconds++
+                isRunning= true;
+                 plus = setInterval(()=>{
+                seconds++;
                 if(seconds == 60){ 
                     minutes = 1;
                     seconds = 0;
@@ -63,19 +71,57 @@
                     hours = 1;
                     minutes = 0;
                 }
-                timer.innerText = `${String(hours).padStart(2,0)}:${String(minutes).padStart(2,0)}:${String(seconds).padStart(2,0)}`;
-            },1000)
+                 updateData();
+            },1000);
             }
-            
         }
+
         function start(){
-            isRunning = false;
-            onGoing();
+            if(isBreakRunning == false){
+                onGoing();
+            } 
         }
-        function stop(){
+
+        function stoptimer(){
+            if(isBreakRunning == true){
+                clearInterval(Break);
+                isBreakRunning = false;
+            }
             clearInterval(plus)
-            isRunning = true;
+            isRunning = false;
+        }
+
+        function breaktimer(){
             
+            clearInterval(plus);
+            hours = 0;
+            minutes = 5;
+            seconds = 59;
+            if(isBreakRunning == false){
+            breakTimer = setInterval(()=>{
+                
+                seconds--;
+                if(seconds == 0){
+                    minutes--;
+                    seconds = 59;
+                }
+                
+                updateData();
+                if(minutes == 4){
+                    clearInterval(breaktimer)
+                }
+            },1000)}
+            isBreakRunning = true;
+        }
+
+        function reset(){
+            
+            clearInterval(plus);
+            clearInterval(breakTimer)
+            hours = minutes = seconds = 0;
+            updateData();
+            isRunning = false;
+            isBreakRunning = false;
         }
     </script>
 </body>
