@@ -11,15 +11,11 @@
             height: 80vh;
             flex-direction: column;
             background-color: yellowgreen;
-            margin-bottom: ;
         }
         #timer{
             display: flex;
-            font-size: 10vw;
+            font-size: 20vh;
             justify-content: center;
-            background-color: yellow;
-            border-radius: 90px;
-            margin-bottom: 20px;
         }
         #buttons {
             display: flex;
@@ -29,7 +25,7 @@
         }
         button{
             margin-left: 60px;
-            font-size: 5vh;
+            font-size: 35px;
             border: solid 2px;
             border-radius: 6px;
             background-color: ;
@@ -92,40 +88,17 @@
                 isBreakRunning = false;
             }
             else if(isBreakRunning == false){
-                rest();
+                breaktimer;
             }
-            else if(isRunning == true){
-                clearInterval(plus);
-                isRunning = false;
-            }
-
-            else if(isRunning == false){
-                start();
-            }
-            
+            clearInterval(plus)
+            isRunning = false;
         }
 
         function rest(){
-            isRunning = false;
             clearInterval(plus);
-            if(isBreakRunning == true){
-                hours = 0;
-                minutes = 5;
-                seconds = 59;
-                breaktimer = setInterval(()=>{
-                seconds--;
-                if(seconds == 0){
-                    minutes--;
-                    seconds = 59;isbreakpaused == true;
-                }
-                
-                updateData();
-                if(minutes == 4){
-                    clearInterval(breaktimer);
-                }
-            },1000)}
-        }
-
+            hours = 0;
+            minutes = 5;
+            seconds = 59;
             if(isBreakRunning == false){
                 isBreakRunning = true;
             breaktimer = setInterval(()=>{
@@ -145,6 +118,7 @@
         }
 
         function reset(){
+            
             clearInterval(plus);
             clearInterval(breaktimer)
             hours = minutes = seconds = 0;
