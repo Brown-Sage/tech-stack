@@ -55,45 +55,45 @@
         let isBreakRunning = false;
         let isbreakpaused;
         function updateData(){
-            timer.innerText = `${String(hours).padStart(2,0)}:${String(minutes).padStart(2,0)}:${String(seconds).padStart(2,0)}`;
+            timer.innerText = `${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
         };
-
         function onGoing(){
+            hours = minutes = seconds = 0;
             if(isRunning==false){
                 isRunning= true;
                  plus = setInterval(()=>{
                 seconds++;
-                if(seconds == 60){ 
-                    minutes = 1;
+                if(seconds === 60){ 
+                    minutes++;
                     seconds = 0;
                 }
                 if(minutes==60){
-                    hours = 1;
+                    hours++;
                     minutes = 0;
                 }
                  updateData();
             },1000);
-            }
         }
+    }
 
         function start(){
-            if(isBreakRunning == false){
-                onGoing();
-            } 
+            if(isBreakRunning == true){
+                reset();
+                isBreakRunning = false;
+                hours = minutes = seconds = 0;
+
+            }
+            onGoing();
         }
 
-        function stoptimer(){
+        function stoptimer(){ 
             if(isBreakRunning == true){  
                 clearInterval(breaktimer);
                 isBreakRunning = false;
             }
-            else if(isBreakRunning == false){
-                breaktimer;
-            }
-            clearInterval(plus)
+            clearInterval(plus);
             isRunning = false;
         }
-
         function rest(){
             clearInterval(plus);
             hours = 0;
