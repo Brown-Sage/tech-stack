@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pomodoro Timer</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#timer {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 80px;
+    font-size: 6rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    font-weight: 600;
+    min-width: 140px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:nth-child(1) { /* Start button */
+    background: #4CAF50;
+}
+
+button:nth-child(2) { /* Stop/Resume button */
+    background: #f44336;
+}
+
+button:nth-child(3) { /* Break button */
+    background: #2196F3;
+}
+
+button:nth-child(4) { /* Reset button */
+    background: #757575;
+}
+
+/* Status indicator */
+#status {
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* W Design for the screen size glazers  */
+@media (max-width: 768px) {
+    #timer {
+        font-size: 4rem;
+        padding: 30px 60px;
+    }
+
+    button {
+        padding: 12px 24px;
+        font-size: 1rem;
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    #timer {
+        font-size: 3rem;
+        padding: 20px 40px;
+    }
+
+    #buttons {
+        gap: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        min-width: 100px;
+    }
+}
+</style>
+</head>
+<body>
+<div id="container">
+    <div id="timer">00:00:00</div>
+    <div id="buttons">
+        <button onclick="start()">Start</button>
+        <button id="stopResumeBtn" onclick="stopResume()">Stop</button>
+        <button onclick="rest()">Break</button>
+        <button onclick="reset()">Reset</button>
+    </div>
+    <div id="status"></div>
+</div>
+<script>
+let timer = document.getElementById("timer");
+let status = document.getElementById("status");
+let stopResumeBtn = document.getElementById("stopResumeBtn");
+let hours = 0;
+let minutes = 0;
+let seconds = 0;
+let isRunning = false;
+let isBreakRunning = false;
+let isPaused = false;
+let plus;
+let breaktimer;
+let cycles = 0;
+
+function updateData(){
+    timer.innerText = `${String(hours).padStart(2,'0')}:${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+};
+
+function updateStatus(message) {
+    status.textContent = message + (cycles > 0 ? ` (Cycle ${cycles})` : '');
+}
+
+function onGoing(){
+    if(isRunning==false){
+        isRunning = true;
+        isPaused = false;
+        updateStatus("Focus Time: 25 minutes");
+        stopResumeBtn.textContent = "Stop";
+        plus = setInterval(()=>{
+            seconds++;
+            if(seconds === 60){
+                minutes++;
+                seconds = 0;
+            }
+            if(minutes==25){
+                clearInterval(plus);
+                isRunning = false;
+                rest();
+                return;
+            }
+            if(minutes==60){
+                hours++;
+                minutes = 0;
+            }
+            updateData();
+        },1000);
+    }
+}
+
+function start(){
+    if(isBreakRunning == true){
+        reset();
+        isBreakRunning = false;
+        hours = minutes = seconds = 0;
+    }
+    if(!isPaused) {
+        hours = minutes = seconds = 0;
+        cycles++;
+    }
+    onGoing();
+}
+
+function stopResume(){
+    if(isBreakRunning) {
+        if(isPaused) {
+            isPaused = false;
+            isBreakRunning = true;
+            stopResumeBtn.textContent = "Stop";
+            updateStatus("Break Time: Resumed");
+            rest();
+        } else {
+            clearInterval(breaktimer);
+            isPaused = true;
+            stopResumeBtn.textContent = "Resume";
+            updateStatus("Break Time: Paused");
+        }
+    } else {
+        if(isRunning) {
+            clearInterval(plus);
+            isRunning = false;
+            isPaused = true;
+            stopResumeBtn.textContent = "Resume";
+            updateStatus("Timer Paused");
+        } else if(isPaused) {
+            onGoing();
+        }
+    }
+}
+
+function rest(){
+    clearInterval(plus);
+    if(!isPaused) {
+        hours = 0;
+        minutes = 5;
+        seconds = 0;
+    }
+    if(isBreakRunning == false){
+        isBreakRunning = true;
+        isPaused = false;
+        stopResumeBtn.textContent = "Stop";
+        updateStatus("Break Time: 5 minutes");
+        breaktimer = setInterval(()=>{
+            if(seconds == 0){
+                if(minutes == 0){
+                    clearInterval(breaktimer);
+                    isBreakRunning = false;
+                    updateStatus("Break Complete! Starting new session...");
+                    setTimeout(() => {
+                        start(); // Auto-start next session
+                        
+                    }, 2000);
+                    return;
+                }
+                minutes--;
+                seconds = 59;
+            } else {
+                seconds--;
+            }
+            updateData();
+        },1000);
+    }
+}
+
+function reset(){
+    clearInterval(plus);
+    clearInterval(breaktimer);
+    hours = minutes = seconds = 0;
+    updateData();
+    isRunning = false;
+    isBreakRunning = false;
+    isPaused = false;
+    cycles = 0;
+    stopResumeBtn.textContent = "Stop";
+    updateStatus("Timer Reset");
+}
+</script>
+</body>
+</html>
